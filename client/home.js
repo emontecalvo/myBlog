@@ -44,7 +44,7 @@ class Home extends React.Component {
 			this.state.showEdit = true;
 			this.state.blogToEdit = blogPost;
 			this.setState({ showEdit: true});
-			this.setState({blogToEdit: blogToEdit});
+			this.setState({blogToEdit: blogPost});
 		}
 	}
 
