@@ -23,7 +23,7 @@ const editBlogForm = ({blogToEdit, editBlogPost}) => {
 
       <input type="text" name="title" defaultValue={blogToEdit.title}/>
       <textarea rows="4" cols="50" name="content" defaultValue={blogToEdit.content}/>
-      <input type="text" name="tags" />
+      <input type="text" name="tags" defaultValue={blogToEdit.tags}/>
 
     <button type="submit">
       Save Edit
