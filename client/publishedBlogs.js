@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 
 
-const publishedBlogs = ({blogs}) => {
+const publishedBlogs = ({blogs, removeBlogPost, editBlogStart}) => {
 
   console.log(blogs);
 
@@ -17,8 +17,8 @@ const publishedBlogs = ({blogs}) => {
 		        		<li>{blog.content}</li>
 		        		<li>{blog.tags}</li>
 		        	</ul>
-		        	<button>edit</button>
-		        	<button>remove</button>
+		        	<button onClick={() => editBlogStart(blog)}>edit</button>
+		        	<button onClick={() => removeBlogPost(blog)}>remove</button>
              </div>;
       })}
     </ul>
