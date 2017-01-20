@@ -13,7 +13,10 @@ const editBlogForm = ({blogToEdit, editBlogPost}) => {
               let title = e.target.title.value
               let content = e.target.content.value
               let tags = e.target.tags.value
-              editBlogPost(title, content, tags)
+              blogToEdit.title = title
+              blogToEdit.content = content
+              blogToEdit.tags = tags
+              editBlogPost(blogToEdit)
 
               e.target.title.value = 'hello'
               e.target.content.value = blogToEdit.content

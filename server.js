@@ -61,8 +61,6 @@ app.post('/create-blog', (req, res) => {
 })
 
 app.put('/editblogs/:blog', function (req, res) {
-  console.log("req body", req.body);
-  console.log("~~~~~~ req params", req.params);
   Blog.findById(req.body.item._id, function (err, blog) {
  
     if (err) {

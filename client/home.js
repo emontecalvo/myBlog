@@ -69,7 +69,7 @@ class Home extends React.Component {
 	}
 
 	editBlogStart(blogPost) {
-		console.log("i am in start");
+		console.log("i am in editStart");
 		var i = this.state.blogposts.indexOf(blogPost);
 		if(i !== -1) {
 			this.state.showEdit = true;
@@ -79,16 +79,31 @@ class Home extends React.Component {
 		}
 	}
 
-	editBlogPost(title, content, tags) {
-		var i = this.state.blogposts.indexOf(this.state.blogToEdit);
-		if (i !== -1) {
-			this.state.blogposts[i].title = title;
-			this.state.blogposts[i].content = content;
-			this.state.blogposts[i].tags = tags;
-			this.state.blogToEdit = '',
-			this.state.showEdit = false;
-		}
-		return this.setState({ blogposts: this.state.blogposts, blogToEdit: this.state.blogToEdit, showEdit: this.state.showEdit});
+	editBlogPost(blogToEdit) {
+		this.state.blogToEdit = '';
+		this.state.showEdit = false;
+		fetch('/editblogs/' + blogToEdit, { // this is sending req.params
+		  		method: 'PUT',
+		  		headers: {
+		    	'Content-Type': 'application/json'
+		  	},
+		  	body: JSON.stringify({  /// this is the req.body, this is being passed to the server
+		    item: blogToEdit
+		  })
+		}).then((response) => {
+		    return response.json()
+		  }).then((data) => {
+		  	var blog_sub = [];
+		  	for (var a = 0; a < this.state.blogposts.length; a++) {
+		  		if (this.state.blogposts[a]._id !== data._id) {
+		  			blog_sub.push(this.state.blogposts[a]);
+		  		} else {
+		  			blog_sub.push(data);
+		  		}
+		  	}
+		  	console.log("state blogs after update:", this.state.blogposts);
+		   	this.setState({ blogposts: blog_sub });
+		  })
 	}
 
 	render() {
