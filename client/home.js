@@ -17,15 +17,16 @@ class Home extends React.Component {
 		this.addBlog = this.addBlog.bind(this)
 	}
 
+	componentDidMount() {
+		fetch('/blogs')
+		  .then((response) =>{
+		    return response.json()
+		  }).then((data) =>{
+		    this.setState({ blogposts: data })
+		  })
+	}
+
 	addBlog(title, content, tags) {
-		// console.log(title, content, tags);
-		// var newBlog = {
-		// 	title: title,
-		// 	content: content,
-		// 	tags: tags
-		// }
-		// this.state.blogposts.push(newBlog);
-		// return this.setState({blogposts: this.state.blogposts});
 		fetch('/create-blog', {
 		  method: 'POST',
 		  headers: {
@@ -44,13 +45,27 @@ class Home extends React.Component {
 	}
 
 	removeBlogPost(blogPost) {
-		var i = this.state.blogposts.indexOf(blogPost);
-		console.log("i is: ", i);
-		if (i !== -1) {
-			this.state.blogposts.splice(i, 1);
+		var i;
+		for (var j = 0; j < this.state.blogposts.length; j++) {
+			if (this.state.blogposts[j]._id === blogPost._id) {
+				var i = this.state.blogposts[j];
+			}
 		}
-		console.log("blog posts are now:", this.state.blogposts);
-		return this.setState({blogposts: this.state.blogposts});
+		if(i !== -1) {
+			fetch('/blogs/' + blogPost._id, {
+		  		method: 'DELETE',
+		  		headers: {
+		    	'Content-Type': 'application/json'
+		  	},
+		  	body: JSON.stringify({
+		    id: blogPost._id
+		  })
+		}).then((response) => {
+		    return response.json()
+		  }).then((data) => {
+		   	this.setState({ blogposts: data })
+		  })
+		}
 	}
 
 	editBlogStart(blogPost) {
