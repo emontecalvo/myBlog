@@ -14,17 +14,33 @@ class Home extends React.Component {
 			showEdit: false,
 			blogToEdit: ''
 		}
+		this.addBlog = this.addBlog.bind(this)
 	}
 
 	addBlog(title, content, tags) {
-		console.log(title, content, tags);
-		var newBlog = {
-			title: title,
-			content: content,
-			tags: tags
-		}
-		this.state.blogposts.push(newBlog);
-		return this.setState({blogposts: this.state.blogposts});
+		// console.log(title, content, tags);
+		// var newBlog = {
+		// 	title: title,
+		// 	content: content,
+		// 	tags: tags
+		// }
+		// this.state.blogposts.push(newBlog);
+		// return this.setState({blogposts: this.state.blogposts});
+		fetch('/create-blog', {
+		  method: 'POST',
+		  headers: {
+		    'Content-Type': 'application/json'
+		  },
+		  body: JSON.stringify({
+		    title: title,
+		    content: content,
+		    tags: tags
+		  })
+		}).then((response) => {
+		    return response.json()
+		  }).then((data) => {
+		   	this.setState({ blogposts: data })
+		  })
 	}
 
 	removeBlogPost(blogPost) {
