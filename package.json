@@ -15,14 +15,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Rosuav/full-stack-app.git"
+    "url": "git+https://github.com/emontecalvo/myblog.git"
   },
   "author": "Emily Monte Calvo",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Rosuav/full-stack-app/issues"
-  },
-  "homepage": "https://github.com/Rosuav/full-stack-app#readme",
+  "homepage": "https://github.com/emontecalvo/myblog#readme",
   "dependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
