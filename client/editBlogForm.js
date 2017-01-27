@@ -1,9 +1,6 @@
 import React from 'react';
-import {connect} from 'react-redux';
-
 
 const editBlogForm = ({blogToEdit, editBlogPost}) => {
-  console.log(blogToEdit);
 
     return(
           <div>
@@ -29,7 +26,7 @@ const editBlogForm = ({blogToEdit, editBlogPost}) => {
       <input type="text" name="tags" defaultValue={blogToEdit.tags}/>
 
     <button type="submit">
-      Save Edit
+      save
     </button>
   </form>
       </div>

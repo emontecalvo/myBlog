@@ -1,5 +1,4 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import NewBlog from './newBlog';
 import PublishedBlogs from './publishedBlogs';
 import EditBlogForm from './editBlogForm';
@@ -111,7 +110,7 @@ class Home extends React.Component {
 			return <div><EditBlogForm blogToEdit={this.state.blogToEdit} editBlogPost={this.editBlogPost.bind(this)} /></div>
 		} else {
 			return <div>
-					<h1>my blog</h1>
+					<h1>my blog - pure react</h1>
 					<NewBlog addBlog={this.addBlog.bind(this)}/>
 					<PublishedBlogs 
 						blogs={this.state.blogposts}
