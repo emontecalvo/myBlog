@@ -1,4 +1,3 @@
-
 #My Blog Redux#
 
 A full-stack React app - *without Redux* - with the basic CRUD operations working.
