@@ -1,12 +1,73 @@
-Basic full-stack JavaScript app template
 
-To install: npm install
+#My Blog Redux#
 
-To build: npm run build
+A full-stack React app - *without Redux* - with the basic CRUD operations working.
 
-To start the server: npm run start
+This was designed as a comparison to my project My Blog Redux, a full-stack React app *with* Redux (https://github.com/emontecalvo/myBlogRedux).
 
-To start in dev mode, with everything watched: npm run watch
+![Alt text](./blog_pure_react.png?raw=true "My Blog without Redux")
 
-TODO: Use makefiles to cut down on some of the work (eg 'npm run start'
-currently runs 'npm run build' unconditionally).
+
+###Setup Instructions:
+
+* To use this application, simply clone or download the repository.
+
+* Make sure you have Node.js installed (https://nodejs.org/en/).
+
+* Make sure you have Mongodb installed (https://www.mongodb.com).
+
+* cd into the project folder.
+
+* In the command line run: $npm install
+
+* Next, in the command line run: $npm run build
+
+* Third, launch Mongodb (usually by typing $mongod in the terminal).
+
+* Then, in the command line run: $npm run watch (to track code changes in development mode) or run $npm start and leave the code alone.
+
+* Go to the localhost 8080 on your web browser and you should see *My Blog Redux* running!
+
+### Live Site
+* coming soon
+
+
+###Technologies (Quick Overview)
+* Node.js
+* React
+* HTML
+* CSS
+* MongoDB
+* Express
+* Webpack
+
+###Origin
+* A lack of simple CRUD application information with the MERN stack was what inspired this project.  This project is as much about the technologies and dependencies used as it is about the technologies and dependencies *not* used.
+
+###Functionality and Technology
+* MERN stack (MongoDB, Express, React, Node).
+* This app was built to be responsive across multiple web-browsers and multiple sizes *without* using media searches in the CSS.
+* The front-end was built with pure React, "no extras".
+* The database was built using Mongodb and Express.
+* Routing was achieved *without* using React-router in order to better gain an appreciation of the problem React-router was trying to solve.
+* Adding Redux to this project after it had already been built with pure-React was welcome because a full appreciation of the problems Redux was trying to solve had been reached (please see the React-with-Redux at: https://github.com/emontecalvo/myBlogRedux).
+
+##### Directory layout
+
+```
+
+├── client      Client-side code
+├── models      Database models
+└── server.js   Server-side code
+
+```
+
+### Development Roadmap
+Plans to add to this project at a later date are below:
+
+* Add authentication
+  * Authentication without React-router
+  * Authentication with React-router
+* Allow users to change their background
+
+
