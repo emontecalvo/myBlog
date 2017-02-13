@@ -27,8 +27,8 @@ This was designed as a comparison to my project My Blog Redux, a full-stack Reac
 
 * Go to the localhost 8080 on your web browser and you should see *My Blog Redux* running!
 
-### Live Site
-* coming soon
+### Live Demo
+* https://emontecalvo.github.io/blogDemo/
 
 
 ###Technologies (Quick Overview)
